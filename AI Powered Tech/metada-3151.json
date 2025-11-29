@@ -1,0 +1,90 @@
+# metadata.json
+
+```json
+{
+  "title": "Build an AI-Powered Tech Radar Advisor with SQL DB, RAG, and Routing Agents",
+  "description": "n8n workflow that ingests a ThoughtWorks Tech Radar Google Sheet into a MySQL DB and a Pinecone vector index, and exposes an AI chat endpoint which routes queries to a SQL agent or RAG agent with an output guardrail.",
+  "author": {
+    "name": "Sean Lon",
+    "bio": "I embarked on my coding journey at the age of 13, driven by a deep passion for AI, automation, and engineering.",
+    "website": "https://seanlon.site",
+    "avatar": "https://gravatar.com/avatar/1880b3f123439c4d0709778f8b82baf2071047f6071a42b9a744313faa0d235e?r=pg&d=retro&size=200"
+  },
+  "n8n": {
+    "workflow_url_public": "https://n8nworkflows.xyz/workflows/-build-an-ai-powered-tech-radar-advisor-with-sql-db--rag--and-routing-agents-3151",
+    "workflow_url_official": "https://n8n.io/workflows/3151",
+    "node_types_count": {
+      "n8n-nodes-base.if": 1,
+      "n8n-nodes-base.code": 3,
+      "n8n-nodes-base.cron": 1,
+      "n8n-nodes-base.mySql": 2,
+      "n8n-nodes-base.webhook": 1,
+      "n8n-nodes-base.mySqlTool": 3,
+      "n8n-nodes-base.googleDocs": 1,
+      "n8n-nodes-base.stickyNote": 16,
+      "n8n-nodes-base.googleDrive": 1,
+      "n8n-nodes-base.googleSheets": 2,
+      "@n8n/n8n-nodes-langchain.agent": 3,
+      "n8n-nodes-base.executeWorkflow": 2,
+      "n8n-nodes-base.respondToWebhook": 1,
+      "@n8n/n8n-nodes-langchain.chainLlm": 1,
+      "n8n-nodes-base.googleDriveTrigger": 1,
+      "@n8n/n8n-nodes-langchain.lmChatGroq": 3,
+      "n8n-nodes-base.executeWorkflowTrigger": 1,
+      "@n8n/n8n-nodes-langchain.lmChatAnthropic": 1,
+      "@n8n/n8n-nodes-langchain.toolVectorStore": 1,
+      "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 1,
+      "@n8n/n8n-nodes-langchain.memoryBufferWindow": 1,
+      "@n8n/n8n-nodes-langchain.vectorStorePinecone": 2,
+      "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini": 2,
+      "@n8n/n8n-nodes-langchain.documentDefaultDataLoader": 1,
+      "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter": 1
+    },
+    "categories": ["Engineering","Product","AI"]
+  },
+  "components": {
+    "data_ingestion": [
+      "Google Sheets (Tech Radar)",
+      "Code: transform rows => paragraph text",
+      "Google Docs: update GDoc",
+      "Google Drive trigger",
+      "LangChain document loader & text splitter",
+      "Embeddings (Google Gemini)",
+      "Pinecone vector store",
+      "MySQL sync"
+    ],
+    "query_routing": [
+      "Webhook /radar-rag",
+      "LLM router (classify SQL vs RAG)",
+      "Execute Workflow (SQL agent)",
+      "Execute Workflow (RAG agent)",
+      "Output Guardrail agent",
+      "Respond to webhook"
+    ],
+    "scheduled_sync": ["Cron => clear MySQL => reload from Google Sheets"]
+  },
+  "required_env": [
+    "GOOGLE_SHEETS_CREDENTIALS",
+    "GOOGLE_DRIVE_CREDENTIALS",
+    "GOOGLE_SERVICE_ACCOUNT_DOCS",
+    "GOOGLE_GEMINI_API_KEY",
+    "PINECONE_API_KEY",
+    "MYSQL_HOST",
+    "MYSQL_PORT",
+    "MYSQL_USER",
+    "MYSQL_PASSWORD",
+    "MYSQL_DATABASE",
+    "GROQ_API_KEY (or other LLM provider keys)"
+  ],
+  "endpoints": {
+    "chat_webhook": {
+      "path": "/radar-rag",
+      "method": "POST",
+      "payload": { "chatInput": "string" },
+      "response": "final assistant answer (text)"
+    }
+  },
+  "license": "MIT",
+  "created_at": "2025-11-29T00:00:00Z"
+}
+```
