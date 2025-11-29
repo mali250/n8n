@@ -1,0 +1,31 @@
+{
+  "user_name": "Muazzam Ali",
+  "user_username": "muazzam-ali",
+  "user_bio": "AI Automation Engineer | Specialist in Real-Time Face Recognition, CCTV Stream Processing, and Intelligent Workflow Automation. I build high-performance systems for enterprises using Python, OpenAI, n8n, and cloud deployments.",
+  "user_links": "",
+  "user_avatar": "https://gravatar.com/avatar/00000000000000000000000000000000?d=retro&size=200",
+  "url": "https://n8nworkflows.xyz/workflows/ai-email-support-system-6288",
+  "url_n8n": "https://n8n.io/workflows/6288",
+  "nodeTypes": {
+    "n8n-nodes-base.set": { "count": 4 },
+    "n8n-nodes-base.gmail": { "count": 1 },
+    "n8n-nodes-base.slack": { "count": 1 },
+    "n8n-nodes-base.stickyNote": { "count": 3 },
+    "n8n-nodes-base.googleDrive": { "count": 1 },
+    "n8n-nodes-base.gmailTrigger": { "count": 1 },
+    "n8n-nodes-base.googleSheets": { "count": 1 },
+    "@n8n/n8n-nodes-langchain.agent": { "count": 4 },
+    "n8n-nodes-base.googleDriveTrigger": { "count": 1 },
+    "@n8n/n8n-nodes-langchain.lmChatOpenAi": { "count": 1 },
+    "@n8n/n8n-nodes-langchain.textClassifier": { "count": 1 },
+    "@n8n/n8n-nodes-langchain.embeddingsOpenAi": { "count": 2 },
+    "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": { "count": 1 },
+    "@n8n/n8n-nodes-langchain.vectorStorePinecone": { "count": 2 },
+    "@n8n/n8n-nodes-langchain.documentDefaultDataLoader": { "count": 1 },
+    "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter": { "count": 1 }
+  },
+  "categories": [
+    { "id": 41, "name": "Ticket Management" },
+    { "id": 48, "name": "AI RAG" }
+  ]
+}
